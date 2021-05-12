@@ -68,6 +68,7 @@ class VPUTILITIES_API UVPCameraBlueprintLibrary : public UBlueprintFunctionLibra
 
 public:
 
+	//UPARAM(ref), https://blog.csdn.net/opk8848/article/details/104887704/
 	UFUNCTION(BlueprintCallable, Category = "Virtual Production")
 	static ACameraRig_Rail* SpawnDollyTrackFromPoints(UObject* WorldContextObject, UPARAM(ref) const TArray<FTransform>& Points, ESplinePointType::Type InterpType = ESplinePointType::Linear);
 

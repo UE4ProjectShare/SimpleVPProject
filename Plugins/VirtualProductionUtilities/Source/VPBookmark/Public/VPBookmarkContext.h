@@ -13,15 +13,15 @@ struct VPBOOKMARK_API FVPBookmarkCreationContext
 	GENERATED_BODY()
 
 public:
-	/** Username of the Concert client who is creating this bookmark. */
+	/** 创建此书签的客户端的用户名 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Bookmarks")
 	FString ConcertCreator;
 
-	/** Category of the Bookmark */
+	/** 书签的分类 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Bookmarks")
 	FName CategoryName;
 
-	/** Name of the Bookmark */
+	/** 书签的名字 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Bookmarks")
 	FString DisplayName;
 };

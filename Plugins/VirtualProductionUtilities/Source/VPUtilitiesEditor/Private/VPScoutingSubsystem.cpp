@@ -266,7 +266,7 @@ FString UVPScoutingSubsystem::GetDirectorName()
 
 FString UVPScoutingSubsystem::GetShowName()
 {
-	FString ShowName = GetDefault<UVPSettings>()->ShowName;
+	FString ShowName = GetDefault<UVPSettings>()->ProjectName;
 	if (ShowName == TEXT(""))
 	{
 		ShowName = "Undefined";

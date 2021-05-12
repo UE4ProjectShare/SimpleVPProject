@@ -77,6 +77,7 @@ void FVPBookmarkTypeActions::ActivateBookmark(UVPBookmark* InBookmark, FEditorVi
 					bIsRotationSet = true;
 
 					// Get HMD location in room space but scaled to the floor.
+					/** GetRoomSpaceHeadTransform(), Gets the transform of the user's HMD in room space */
 					FVector HMDLocationOffset = EditorMode->GetRoomSpaceHeadTransform().GetLocation() * FVector(1.f, 1.f, 0.f);
 					Offset -= HMDLocationOffset;
 				}
@@ -138,6 +139,11 @@ void FVPBookmarkTypeActions::InitFromViewport(UBookmarkBase* InBookmark, FEditor
 				{
 					if (UVREditorMode* EditorMode = VREditorModule.GetVRMode())
 					{
+						/**
+						* Gets the world space transform of the HMD (head)
+						*
+						* @return	World space space HMD transform
+						*/
 						HeadTransform = EditorMode->GetHeadTransform();
 
 						// Disregard head space location z when placing the object

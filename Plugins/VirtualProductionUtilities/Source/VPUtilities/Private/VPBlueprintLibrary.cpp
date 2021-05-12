@@ -60,6 +60,12 @@ void UVPBlueprintLibrary::Refresh3DEditorViewport()
 #if WITH_EDITOR	
 	if (FLevelEditorViewportClient* VP = VPBlueprintLibrary::GetViewPortClient())
 	{
+		/**
+		* Invalidates this viewport and optionally child views.
+		*
+		* @param	bInvalidateChildViews		[opt] If true (the default), invalidate views that see this viewport as their parent.
+		* @param	bInvalidateHitProxies		[opt] If true (the default), invalidates cached hit proxies too.
+		*/
 		VP->Invalidate(true);
 	}
 #endif

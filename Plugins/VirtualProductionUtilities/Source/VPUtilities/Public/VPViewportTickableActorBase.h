@@ -16,6 +16,7 @@ enum class EVPViewportTickableFlags : uint8
 	EditorPreview	= 1 << 2,
 	GamePreview		= 1 << 3,
 };
+//定义枚举类的所有按位运算符，以便它可以（主要）用作常规标志枚举
 ENUM_CLASS_FLAGS(EVPViewportTickableFlags)
 
 /**

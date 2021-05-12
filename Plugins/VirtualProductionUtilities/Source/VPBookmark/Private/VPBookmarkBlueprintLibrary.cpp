@@ -57,6 +57,7 @@ void UVPBookmarkBlueprintLibrary::GetAllVPBookmarkActors(const UObject* WorldCon
 				{
 					if (AActor* Actor = Bookmark->OwnedActor.Get())
 					{
+						//Checks the PendingKill flag to see if it is dead but memory still valid
 						if (!Bookmark->IsPendingKill() && !Actor->IsPendingKill())
 						{
 							OutActors.Add(Actor);
@@ -95,7 +96,6 @@ void UVPBookmarkBlueprintLibrary::GetAllVPBookmark(const UObject* WorldContextOb
 	}
 }
 
-// @TODO: This is just a rudimentary implementation that doesn't properly handle gaps
 bool UVPBookmarkBlueprintLibrary::CreateVPBookmarkName(AActor* Bookmark, const FString& FormatString, FString& GeneratedNumber, FString& GeneratedLetter)
 {
 	if (Bookmark == nullptr)
@@ -110,9 +110,7 @@ bool UVPBookmarkBlueprintLibrary::CreateVPBookmarkName(AActor* Bookmark, const F
 		return false;
 	}
 
-	// Set display name of the new bookmark to read "Bookmark 1", "Bookmark 2" etc. 
-	// @todo: To make this work in a concert session, we have to collect all actors in the scene and see which number to use next - we don't have the concept of 
-	// a shared static variable or "Concert scratchpad" yet to keep track.
+	// 设置新书签的名字为"Bookmark 1", "Bookmark 2"等 
 	static const int32 InitialBookmarkIndex = 0;
 	static FString NoPlaceholders(FormatString);
 	NoPlaceholders = NoPlaceholders.Replace(TEXT("%l"), TEXT(""));
@@ -124,7 +122,6 @@ bool UVPBookmarkBlueprintLibrary::CreateVPBookmarkName(AActor* Bookmark, const F
 		int32 HighestBookmarkIndex = InitialBookmarkIndex;
 		int32 NumBookmarks = 0;
 
-		// Iterator over all actors (and then check class inside the loop) because we often handle classes only defined in BP with no native parent
 		for (TActorIterator<AActor> It(Bookmark->GetWorld()); It; ++It)
 		{
 			const AActor* CurrentBookmark = *It;

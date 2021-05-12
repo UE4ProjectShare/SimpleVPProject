@@ -14,7 +14,7 @@ class UOSCServer;
 class FVPUtilitiesEditorModule : public IVPUtilitiesEditorModule
 {
 public:
-		//~ Begin IModuleInterface
+	//~ Begin IModuleInterface
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 	//~ End IModuleInterface

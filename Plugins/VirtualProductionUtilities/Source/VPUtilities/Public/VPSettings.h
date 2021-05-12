@@ -69,7 +69,7 @@ public:
 	FString DirectorName;
 
 	UPROPERTY(config, EditAnywhere, Category = "Virtual Production", DisplayName = "Project Name")
-	FString ShowName;
+	FString ProjectName;
 
 #endif
 

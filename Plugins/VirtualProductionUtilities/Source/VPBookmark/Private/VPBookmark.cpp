@@ -71,7 +71,7 @@ void UVPBookmark::PostInitProperties()
 {
 	Super::PostInitProperties();
 
-	if (!HasAnyFlags(RF_ClassDefaultObject))
+	if (!HasAnyFlags(RF_ClassDefaultObject))//This object is its class's default object
 	{
 #if WITH_EDITOR
 		if (GEngine)
@@ -97,7 +97,6 @@ void UVPBookmark::PostLoad()
 
 	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
-		// Is there an actor attached to the bookmark, if not remove it (note that it can live in a sub level and may not be loaded yet)
 		if (OwnedActor.IsNull())
 		{
 			RemoveBookmark();

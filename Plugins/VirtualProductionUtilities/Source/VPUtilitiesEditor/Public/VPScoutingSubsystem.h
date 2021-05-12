@@ -50,6 +50,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, CallInEditor, BlueprintCallable, Category = "VR")
 	void OnVREditingModeEnter();
+	
 	UFUNCTION(BlueprintNativeEvent, CallInEditor, BlueprintCallable, Category = "VR")
 	void OnVREditingModeExit();
 
@@ -59,7 +60,7 @@ public:
 
 	//~ Begin FTickableEditorObject interface
 	virtual void Tick(float DeltaTime) override;
-	virtual ETickableTickType GetTickableTickType() const override { return ETickableTickType::Conditional; }
+	virtual ETickableTickType GetTickableTickType() const override { return ETickableTickType::Conditional; }/** Use IsTickable to determine whether to tick */
 	virtual bool IsTickable() const override;
 	virtual TStatId GetStatId() const override;
 	//~ End FTickableEditorObject interface

@@ -44,6 +44,11 @@ ACameraRig_Rail* UVPCameraBlueprintLibrary::SpawnDollyTrackFromPoints(UObject* W
 	const int32 NumPoints = Points.Num();
 	const float Base = static_cast<float>(NumPoints - 1);
 
+	/**
+	* Spawns given class and returns class T pointer, forcibly sets world transform (note this allows scale as well). WILL NOT run Construction Script of Blueprints 
+	* to give caller an opportunity to set parameters beforehand.  Caller is responsible for invoking construction
+	* manually by calling UGameplayStatics::FinishSpawningActor (see AActor::OnConstruction).
+	*/
 	ACameraRig_Rail* DollyTrack = World->SpawnActorDeferred<ACameraRig_Rail>(ACameraRig_Rail::StaticClass(), Origin, nullptr, nullptr, ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
 	USplineComponent* SplineComponent = DollyTrack->GetRailSplineComponent();

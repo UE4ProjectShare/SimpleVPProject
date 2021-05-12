@@ -29,6 +29,11 @@ AVPCameraBase::AVPCameraBase(const FObjectInitializer& ObjectInitializer)
 void AVPCameraBase::ResetPreview()
 {
 #if WITH_EDITOR
+	
+	/**
+	* Delineates a transactable block; Begin()s a transaction when entering scope,
+	* and End()s a transaction when leaving scope.
+	*/
 	const FScopedTransaction Transaction(LOCTEXT("TransactionRemoveUser", "RemoveUser"));
 	Modify();
 	SelectedByUsers.Reset();

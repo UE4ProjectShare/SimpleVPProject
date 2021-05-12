@@ -46,6 +46,7 @@ void AVPViewportTickableActorBase::Tick(float DeltaSeconds)
 #if WITH_EDITOR
 	if (GIsEditor)
 	{
+		//作用域结构，允许在编辑器中执行脚本，同时重置失控循环计数
 		FEditorScriptExecutionGuard ScriptGuard;
 		EditorTick(DeltaSeconds);
 	}

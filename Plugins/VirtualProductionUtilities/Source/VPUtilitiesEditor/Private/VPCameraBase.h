@@ -27,6 +27,13 @@ public:
 	virtual bool ShouldTickIfViewportsOnly() const override;
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void BeginDestroy() override;
+
+	/**
+	* Presave function. Gets called once before an object gets serialized for saving. This function is necessary
+	* for save time computation as Serialize gets called three times per object from within SavePackage.
+	*
+	* @warning: Objects created from within PreSave will NOT have PreSave called on them!!!
+	*/
 	virtual void PreSave(const class ITargetPlatform* TargetPlatform) override;
 
 private:
