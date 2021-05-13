@@ -42,6 +42,7 @@ public:
 	bool bUseTransformGizmo = false;
 	
 	/** If true, the user will use inertia damping to stop after grip nav. Otherwise the user will just stop immediately */
+	//惯性
 	UPROPERTY(EditAnywhere, config, Category = "Virtual Production", meta = (DisplayName = "Use Grip Inertia Damping"))
 	bool bUseGripInertiaDamping = true;
 	

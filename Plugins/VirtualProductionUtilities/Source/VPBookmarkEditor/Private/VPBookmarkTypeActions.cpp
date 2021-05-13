@@ -17,6 +17,7 @@
 #include "ViewportWorldInteraction.h"
 #include "VREditorMode.h"
 
+PRAGMA_DISABLE_OPTIMIZATION
 
 namespace VPBookmark
 {
@@ -286,3 +287,5 @@ AActor* FVPBookmarkTypeActions::SpawnBookmark(FEditorViewportClient& InViewportC
 
 	return SpawnedActor;
 }
+
+PRAGMA_ENABLE_OPTIMIZATION

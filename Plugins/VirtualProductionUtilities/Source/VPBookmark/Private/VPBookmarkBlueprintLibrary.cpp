@@ -11,6 +11,8 @@
 #include "IVPBookmarkProvider.h"
 #include "VPBookmarkModule.h"
 
+PRAGMA_DISABLE_OPTIMIZATION
+
 UVPBookmark* UVPBookmarkBlueprintLibrary::FindVPBookmark(const AActor* Actor)
 {
 	UVPBookmark* Result = nullptr;
@@ -149,3 +151,6 @@ bool UVPBookmarkBlueprintLibrary::CreateVPBookmarkName(AActor* Bookmark, const F
 	}
 	return false;
 }
+
+
+PRAGMA_ENABLE_OPTIMIZATION

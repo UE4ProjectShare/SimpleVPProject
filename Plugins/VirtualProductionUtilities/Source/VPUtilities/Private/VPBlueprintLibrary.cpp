@@ -277,6 +277,7 @@ bool UVPBlueprintLibrary::EditorDuplicate()
 void UVPBlueprintLibrary::VPBookmarkSplineMeshIndicatorSetStartAndEnd(USplineMeshComponent* SplineMesh)
 {
 	SplineMesh->SetVisibility(true);
+	/** Get the current component-to-world transform for this component */
 	const FTransform SplineTransform = SplineMesh->GetComponentTransform();
 		
 	// @todo: Fix - GetVREditorLaserHoverLocation() does not return the correct hover location
